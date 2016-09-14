@@ -4,9 +4,9 @@
 	else if(typeof define === 'function' && define.amd)
 		define([], factory);
 	else if(typeof exports === 'object')
-		exports["Qrcode2"] = factory();
+		exports["QRCode2"] = factory();
 	else
-		root["Qrcode2"] = factory();
+		root["QRCode2"] = factory();
 })(this, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -71,7 +71,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 */
 	var QRCode;
 
-	(function () {
+	(function (global) {
 		//---------------------------------------------------------------------
 		// QRCode for JavaScript
 		//
@@ -82,7 +82,7 @@ return /******/ (function(modules) { // webpackBootstrap
 		// Licensed under the MIT license:
 		//   http://www.opensource.org/licenses/mit-license.php
 		//
-		// The word "QR Code" is registered trademark of 
+		// The word "QR Code" is registered trademark of
 		// DENSO WAVE INCORPORATED
 		//   http://www.denso-wave.com/qrcode/faqpatent-e.html
 		//
@@ -614,7 +614,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 			/**
 	   * Draw the QRCode
-	   * 
+	   *
 	   * @param {QRCode} oQRCode
 	   */
 			Drawing.prototype.draw = function (oQRCode) {
@@ -666,7 +666,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 			// Android 2.1 bug workaround
 			// http://code.google.com/p/android/issues/detail?id=5141
-			if (this._android && this._android <= 2.1) {
+			if (global._android && global._android <= 2.1) {
 				var factor = 1 / window.devicePixelRatio;
 				var drawImage = CanvasRenderingContext2D.prototype.drawImage;
 				CanvasRenderingContext2D.prototype.drawImage = function (image, sx, sy, sw, sh, dx, dy, dw, dh) {
@@ -687,7 +687,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 			/**
 	   * Check whether the user's browser supports Data URI or not
-	   * 
+	   *
 	   * @private
 	   * @param {Function} fSuccess Occurs if it supports Data URI
 	   * @param {Function} fFail Occurs if it doesn't support Data URI
@@ -729,10 +729,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 			/**
 	   * Drawing QRCode by using canvas
-	   * 
+	   *
 	   * @constructor
 	   * @param {HTMLElement} el
-	   * @param {Object} htOption QRCode Options 
+	   * @param {Object} htOption QRCode Options
 	   */
 			var Drawing = function Drawing(el, htOption) {
 				this._bIsPainted = false;
@@ -755,8 +755,8 @@ return /******/ (function(modules) { // webpackBootstrap
 
 			/**
 	   * Draw the QRCode
-	   * 
-	   * @param {QRCode} oQRCode 
+	   *
+	   * @param {QRCode} oQRCode
 	   */
 			Drawing.prototype.draw = function (oQRCode) {
 				var _elImage = this._elImage;
@@ -803,7 +803,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 			/**
 	   * Return whether the QRCode is painted or not
-	   * 
+	   *
 	   * @return {Boolean}
 	   */
 			Drawing.prototype.isPainted = function () {
@@ -831,11 +831,11 @@ return /******/ (function(modules) { // webpackBootstrap
 			};
 
 			return Drawing;
-		}();
+		}(global);
 
 		/**
 	  * Get the type by string length
-	  * 
+	  *
 	  * @private
 	  * @param {String} sText
 	  * @param {Number} nCorrectLevel
@@ -885,7 +885,7 @@ return /******/ (function(modules) { // webpackBootstrap
 		/**
 	  * @class QRCode
 	  * @constructor
-	  * @example 
+	  * @example
 	  * new QRCode(document.getElementById("test"), "http://jindo.dev.naver.com/collie");
 	  *
 	  * @example
@@ -894,7 +894,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  *    width : 128,
 	  *    height : 128
 	  * });
-	  * 
+	  *
 	  * oQRCode.clear(); // Clear the QRCode.
 	  * oQRCode.makeCode("http://map.naver.com"); // Re-create the QRCode.
 	  *
@@ -905,7 +905,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  * @param {Number} [vOption.height=256]
 	  * @param {String} [vOption.colorDark="#000000"]
 	  * @param {String} [vOption.colorLight="#ffffff"]
-	  * @param {QRCode.CorrectLevel} [vOption.correctLevel=QRCode.CorrectLevel.H] [L|M|Q|H] 
+	  * @param {QRCode.CorrectLevel} [vOption.correctLevel=QRCode.CorrectLevel.H] [L|M|Q|H]
 	  */
 		QRCode = function QRCode(el, vOption) {
 			this._htOption = {
@@ -950,7 +950,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 		/**
 	  * Make the QRCode
-	  * 
+	  *
 	  * @param {String} sText link data
 	  */
 		QRCode.prototype.makeCode = function (sText) {
@@ -966,7 +966,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  * Make the Image from Canvas element
 	  * - It occurs automatically
 	  * - Android below 3 doesn't support Data-URI spec.
-	  * 
+	  *
 	  * @private
 	  */
 		QRCode.prototype.makeImage = function () {
@@ -986,7 +986,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  * @name QRCode.CorrectLevel
 	  */
 		QRCode.CorrectLevel = QRErrorCorrectLevel;
-	})();
+	})(window);
 
 	exports.default = QRCode;
 

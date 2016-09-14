@@ -47,7 +47,7 @@ var config = {
 	output: {
 		path: PATHS.build,
 		filename: libraryName + '.js',
-		library: UpperCamelCase(libraryName),
+		library: 'QRCode2',
 		libraryTarget: 'umd'
 	},
 	module: {
