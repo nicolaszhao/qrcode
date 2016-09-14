@@ -1,6 +1,6 @@
 {
   "name": "qrcode2",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "QRCode的javascript生成库",
   "main": "./dist/qrcode2.js",
   "scripts": {
