@@ -1,0 +1,32 @@
+{
+  "name": "qrcode2",
+  "version": "1.0.2",
+  "description": "QRCode的javascript生成库",
+  "main": "./dist/qrcode2.js",
+  "scripts": {
+    "build:dev": "webpack --progress",
+    "build:prod": "webpack --progress"
+  },
+  "keywords": [
+    "qrcode"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/nicolaszhao/qrcode2.git"
+  },
+  "dependencies": {
+    "webpack-merge": "^0.14.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.14.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.14.0",
+    "clean-webpack-plugin": "^0.1.10"
+  },
+  "bugs": {
+    "url": "https://github.com/nicolaszhao/qrcode2/issues"
+  },
+  "homepage": "https://github.com/nicolaszhao/qrcode2#readme",
+  "author": "Nicolas",
+  "license": "ISC"
+}
