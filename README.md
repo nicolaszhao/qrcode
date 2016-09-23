@@ -1,29 +1,23 @@
-# QRCode 的 javascript 生成库
+# QRCode
+JavaScript版本的QR Code生成库，支持跨浏览器兼容性，实现原理是使用html5的canvas和table绘制。原来的[QRcode](https://github.com/davidshimjs/qrcodejs)，
+只能在script中引入外部文件的方式引入qrcode。为此在这基础上封装了一层[UMD](https://github.com/umdjs/umd)。
 
-支持跨浏览器的html5 canvas和table元素。原来的[QRcode](https://github.com/davidshimjs/qrcodejs)，
-只能通过引入外部文件的方式引入qrcode，为此在这基础上封装了一层[UMD](https://github.com/umdjs/umd)。
+## 用法
 
-## install
-
-`npm install qrcode2 --save`
-
-## usage
-
+1. 安装到项目：`npm install qrcode2 --save`
+2. 使用commonjs或者es6模块方式导入：
 ````
-<div id="qrcode"></div>
-<script>
-import QRcode from 'qrcode2';
-
-new QRCode(document.getElementById("qrcode"), "http://www.hujiang.com");
-</script>
+var QRCode = require('qrcode2');
+//
+// 或者
+import QRCode from 'qrcode2';
 ````
 
-或者配置一些选项：
+3. 实例化`QRCode`对象：
 ````
-<div id="qrcode"></div>
-<script>
-import QRcode from 'qrcode2';
-
+new QRCode(document.getElementById('qrcode'), 'http://www.baidu.com');
+//
+// 或者配置一些选项：
 var qrcode = new QRCode(document.getElementById("qrcode"), {
     text: "http://www.hujiang.com",
     width: 128,
@@ -32,6 +26,25 @@ var qrcode = new QRCode(document.getElementById("qrcode"), {
     colorLight : "#ffffff",
     correctLevel : QRCode.CorrectLevel.H
 });
-</script>
 ````
 
+## 参数
+
+* Element (HTMLElement|String)：HTML元素对象，或者元素id选择器
+* Options (Object|String)：可选参数对象或者qr code的源数据
+    * Options.width：渲染宽度，默认（256）
+    * Options.height：渲染高度，默认（256）
+    * Options.colorDrak：渲染前景色，默认（#000000）
+    * Options.colorLight：渲染背景色，默认（#ffffff）
+    * Options.CorrectLevel：容错级别，默认（QRCode.CorrectLevel.L）可设置为：
+    ````
+    QRCode.CorrectLevel.L
+    QRCode.CorrectLevel.M
+    QRCode.CorrectLevel.Q
+    QRCode.CorrectLevel.H
+    ````
+
+## 方法
+
+* clear：清除QR code
+* makeCode(text: String)：重新绘制QR code
