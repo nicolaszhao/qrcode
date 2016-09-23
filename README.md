@@ -4,7 +4,7 @@ JavaScript版本的QR Code生成库，支持跨浏览器兼容性，实现原理
 
 ## 用法
 
-1. 安装到项目：`npm install qrcode2 --save`
+1. 使用[npm](https://docs.npmjs.com)安装到你的项目中：`npm install qrcode2 --save`
 2. 使用commonjs或者es6模块方式导入：
 ````
 var QRCode = require('qrcode2');
