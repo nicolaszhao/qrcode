@@ -1,32 +1,51 @@
 {
-  "name": "qrcode2",
+  "name": "@nicolaz/qrcode",
   "version": "1.2.3",
-  "description": "QRCode的javascript生成库",
-  "main": "./dist/qrcode2.js",
+  "description": "A QRCode generator Based on JavaScript",
+  "main": "dist/qrcode.cjs.js",
+  "module": "dist/qrcode.esm.js",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
-    "build:dev": "webpack --progress",
-    "build:prod": "webpack --progress"
+    "build": "rollup -c --environment NODE_ENV:production,INCLUDE_UMD",
+    "prepublishOnly": "npm run build"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.js": "eslint"
   },
   "keywords": [
     "qrcode"
   ],
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/nicolaszhao/qrcode2.git"
-  },
-  "dependencies": {
-    "webpack-merge": "^0.14.1"
+    "url": "git+ssh://git@github.com/nicolaszhao/qrcode.git"
   },
   "devDependencies": {
-    "babel-core": "^6.14.0",
-    "babel-loader": "^6.2.5",
-    "babel-preset-es2015": "^6.14.0",
-    "clean-webpack-plugin": "^0.1.10"
+    "@hammal/babel-preset-app": "^0.11.0",
+    "eslint": "^6.0.0",
+    "eslint-config-nicolaz-base": "^0.5.3",
+    "eslint-plugin-import": "^2.18.2",
+    "husky": "^3.1.0",
+    "lint-staged": "^9.4.3",
+    "rollup": "^1.27.2",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-peer-deps-external": "^2.2.0"
   },
   "bugs": {
-    "url": "https://github.com/nicolaszhao/qrcode2/issues"
+    "url": "https://github.com/nicolaszhao/qrcode/issues"
   },
-  "homepage": "https://github.com/nicolaszhao/qrcode2#readme",
-  "author": "Nicolas",
-  "license": "ISC"
+  "homepage": "https://github.com/nicolaszhao/qrcode#readme",
+  "author": "NZ",
+  "license": "MIT",
+  "files": [
+    "dist"
+  ]
 }
