@@ -1,6 +1,6 @@
 # @nicolaz/qrcode
 
-跨浏览器的 JavaScript 版 QRCode 生成库。Fork 至 [QRcode](https://github.com/davidshimjs/qrcodejs)，使其支持 ESM 环境。
+跨浏览器的 JavaScript 版 QRCode 生成库。Fork 自 [QRcode](https://github.com/davidshimjs/qrcodejs)，使其支持 ESM 环境。
 
 ## 安装
 
