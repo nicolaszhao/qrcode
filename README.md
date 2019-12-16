@@ -37,7 +37,7 @@ function QRCode({ url }) {
 
 ## API
 
-### 构造器参数
+### 构造函数参数
 
 #### Element
 
