@@ -1,6 +1,6 @@
 {
   "name": "@nicolaz/qrcode",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "A QRCode generator Based on JavaScript",
   "main": "dist/qrcode.cjs.js",
   "module": "dist/qrcode.esm.js",
